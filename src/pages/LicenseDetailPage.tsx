@@ -475,9 +475,9 @@ const LicenseDetailPage: React.FC = () => {
   }
 
   return (
-    <div className="py-16">
+    <div className="py-0">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             to="/license-types"

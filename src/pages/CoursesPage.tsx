@@ -1,5 +1,6 @@
 import React from 'react';
 import { Clock, Users, Award, BookOpen, Car, Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const CoursesPage: React.FC = () => {
   const courses = [
@@ -93,9 +94,9 @@ const CoursesPage: React.FC = () => {
   ];
 
   return (
-    <div className="py-16">
+    <div className="py-0">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 px-4">
             Sürücü Kursları
@@ -147,277 +148,94 @@ const CoursesPage: React.FC = () => {
       {/* Video Links Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 md:mb-16 px-4">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
+          <div className="text-center mb-16 md:mb-20 px-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
               Videolu Konu Anlatımları
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
               Uzman eğitmenlerimizin hazırladığı detaylı konu anlatım videoları ile öğrenin.
             </p>
           </div>
 
+          {/* Kurs Kategorileri */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
           {/* Trafik ve Çevre Bilgisi */}
-          <div className="mb-8 md:mb-12">
-            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-6 md:mb-8 text-center bg-blue-50 py-3 md:py-4 rounded-lg mx-4">
-              Trafik ve Çevre Bilgisi
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-              {[
-                { title: "Davranış Psikolojisi ve Genel Kavramlar", url: "https://www.youtube.com/watch?v=DUu76nTKiM0" },
-                { title: "Trafik Psikolojisi", url: "https://www.youtube.com/watch?v=7iawDZqjmxQ" },
-                { title: "Trafik İle İlgili Kurullar, Kuruluşlar ve Komisyonlar", url: "https://www.youtube.com/watch?v=XzZV2vYwZvk" },
-                { title: "Trafik İşaretleri", url: "https://www.youtube.com/watch?v=YpEMeGeF0qs" },
-                { title: "Karayolu Yapısının ve Trafik İşaretlerinin Korunması", url: "https://www.youtube.com/watch?v=L2qbovYQH9o" },
-                { title: "Trafik, Karayolu ve Araçlarla İlgili Tanımlar", url: "https://www.youtube.com/watch?v=ityJzK5mhl8" },
-                { title: "Işıklı Trafik İşaretleri", url: "https://www.youtube.com/watch?v=TWetTNR2UoM" },
-                { title: "Yol Çizgileri", url: "https://www.youtube.com/watch?v=9sgnziBt4jU" },
-                { title: "Trafik İşaret Levhaları", url: "https://www.youtube.com/watch?v=SkzH1ZrYlnA" },
-                { title: "Hız Kuralları", url: "https://www.youtube.com/watch?v=vw7TBq8qRxw" },
-                { title: "Araç Kullanma Süreleri", url: "https://www.youtube.com/watch?v=eFzaSxPbXvA" },
-                { title: "Araç Sürme Yasağı", url: "https://www.youtube.com/watch?v=R4QLdJm6SHs" },
-                { title: "Takip Mesafesi", url: "https://www.youtube.com/watch?v=IyIjWuxnJck" },
-                { title: "Geçme Kuralları / Sollama Kuralları", url: "https://www.youtube.com/watch?v=ZQsCOMv-uJ8" },
-                { title: "Dönüşler Doğrultu Değiştirme", url: "https://www.youtube.com/watch?v=wlTbs54_aog" },
-                { title: "Araçların Manevralarına Dair Kurallar", url: "https://www.youtube.com/watch?v=UQnthF42WD0" },
-                { title: "Sürücülerinin Geri Gitme, Geri Dönüş Manevraları", url: "https://www.youtube.com/watch?v=UHm91yUMA_s" },
-                { title: "Kavşaklarda Geçiş Hakkı", url: "https://www.youtube.com/watch?v=M2K7zw6db78" },
-                { title: "Geçiş Üstünlüğüne Sahip Araçlar ve Sürücülerinin Uyacağı Kurallar", url: "https://www.youtube.com/watch?v=Mhw0ueKFlAs" },
-                { title: "Gelen Trafikle Karşılaşmada Geçiş Kolaylığı Sağlama Kuralları", url: "https://www.youtube.com/watch?v=cWIQjtS8DuI" },
-                { title: "Durma, Duraklama ve Park Etme Kuralları", url: "https://www.youtube.com/watch?v=NyZhArQNW5w" },
-                { title: "Araçların Işıklandırılması ve Kullanılması", url: "https://www.youtube.com/watch?v=m0eGvh4ntJ4" },
-                { title: "Karayolunda Bozulan Araçların İşaretlenmesi ve Çekilmesi", url: "https://www.youtube.com/watch?v=l-_NJ-PxCRY" },
-                { title: "Tedbirsiz ve Saygısız Araç Sürme", url: "https://www.youtube.com/watch?v=M6Hzmr2e0ao" },
-                { title: "Ses, Müzik, Görüntü ve Haberleşme Cihazları", url: "https://www.youtube.com/watch?v=n17L8uO6A_o" },
-                { title: "Okul Taşıtları", url: "https://www.youtube.com/watch?v=krSawJoEWCo" },
-                { title: "Araçların Boyutları, Ölçü ve Ağırlıkları İle Yüklenmesi Esasları", url: "https://www.youtube.com/watch?v=gbCUZFdTdgo" },
-                { title: "Otoyol Kuralları", url: "https://www.youtube.com/watch?v=DR1c2tatwTc" },
-                { title: "Bisiklet, Motorlu Bisiklet, Motosiklet ve Sürücüleri İle İlgili Kurallar", url: "https://www.youtube.com/watch?v=wGtZ_XXPA3c" },
-                { title: "Sürücülerin ve Yolcuların Koruyucu Tertibat Kullanma Mecburiyeti", url: "https://www.youtube.com/watch?v=tmxqNViWvME" },
-                { title: "Yayalar, Hayvan Sürücüleri ve Yarışlar Hakkında Kurallar", url: "https://www.youtube.com/watch?v=peUpOJk94bI" },
-                { title: "Çocuk, Engelli, Hasta ve Sakat Taşıtları", url: "https://www.youtube.com/watch?v=sQyniG8nmoA" },
-                { title: "Araçların Tescil İşlemleri, Motorlu Araçlara Ait Şartlar ile Muayeneleri", url: "https://www.youtube.com/watch?v=9n4KVhxi0Js" },
-                { title: "Sürücü Belgeleri, Müracaat Esasları ve Verilme Şartları", url: "https://www.youtube.com/watch?v=RUnAnKdDyPk" },
-                { title: "Trafik Kazaları", url: "https://www.youtube.com/watch?v=EZOZ2W_hIlQ" },
-                { title: "Trafik Kazalarında Asli Kusur Sayılan Haller", url: "https://www.youtube.com/watch?v=3DD0Z5tGA3E" },
-                { title: "Hukuki Sorumluluk ve Sigorta", url: "https://www.youtube.com/watch?v=akkp-HL4HQE" },
-                { title: "Araçlarda Bulundurulması Gereken Teçhizat ve Malzemeler", url: "https://www.youtube.com/watch?v=YuRmFp6lsXo" },
-                { title: "Çevre Bilgisi", url: "https://www.youtube.com/watch?v=F-2eO_YK5CE" },
-                { title: "Harita Bilgisi", url: "https://www.youtube.com/watch?v=P4f1hnyJ28A" }
-              ].map((video, index) => (
-                <a
-                key={index}
-                  href={video.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block p-3 md:p-4 bg-white rounded-lg shadow-md hover:shadow-2xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 hover:rotate-1 border border-gray-200 hover:border-red-300 card-flip group"
-                >
-                  <div className="card-flip-inner">
-                    <div className="flex items-start space-x-3">
-                      <div className="bg-red-100 p-2 rounded-full flex-shrink-0 group-hover:bg-red-200 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                        <svg className="w-4 h-4 text-red-600 group-hover:animate-pulse" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z"/>
-                        </svg>
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="text-xs md:text-sm font-semibold text-gray-900 mb-1 line-clamp-2 group-hover:text-red-600 transition-colors">
-                          {video.title}
-                        </h4>
-                        <p className="text-xs text-gray-500 group-hover:text-red-500 transition-colors">Trafik ve Çevre Bilgisi</p>
-                      </div>
-                      <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
-                        <div className="w-2 h-2 bg-red-600 rounded-full animate-pulse"></div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              ))}
-                  </div>
+            <Link
+              to="/traffic-knowledge"
+              className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative"
+            >
+              <div className="absolute inset-0 bg-black/10"></div>
+              <div className="relative z-10 flex flex-col items-center text-center">
+                <div className="bg-white/20 p-6 rounded-full mb-4">
+                  <img 
+                    src="/images/trafik_ve_cevre.png" 
+                    alt="Trafik ve Çevre Bilgisi" 
+                    className="w-16 h-16 object-contain"
+                  />
                 </div>
+                <h3 className="text-xl font-bold mb-2">Trafik ve Çevre Bilgisi</h3>
+                <p className="text-sm opacity-90">Trafik kuralları ve çevre bilgisi hakkında kapsamlı eğitim videoları</p>
+              </div>
+            </Link>
 
           {/* İlk Yardım */}
-          <div className="mb-8 md:mb-12">
-            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-6 md:mb-8 text-center bg-green-50 py-3 md:py-4 rounded-lg mx-4">
-              İlk Yardım Bilgisi
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-              {[
-                { title: "İlkyardımın Tanımı ve Önemi", url: "https://www.youtube.com/watch?v=fa2mC0FsKVA" },
-                { title: "İnsan Vücudu", url: "https://www.youtube.com/watch?v=AwWIsWCig0k" },
-                { title: "Temel Yaşam Desteği, Solunum ve Kalp Durması", url: "https://www.youtube.com/watch?v=pEksX32cjDQ" },
-                { title: "Suni Solunum Uygulamaları", url: "https://www.youtube.com/watch?v=_QWHrhiOHY4" },
-                { title: "Kanamalar ve Yaralanmalar", url: "https://www.youtube.com/watch?v=DB72wpWMEqk" },
-                { title: "Şok, Bayılma ve Komada İlkyardım", url: "https://www.youtube.com/watch?v=bZw9cqpUh7M" },
-                { title: "Yara ve Yara Çeşitleri", url: "https://www.youtube.com/watch?v=ozexMSiBHjU" },
-                { title: "Kırık, Çıkık ve Burkulmalar", url: "https://www.youtube.com/watch?v=fVAMUhw6ugw" },
-                { title: "Bilinç Bozukluklarında İlkyardım", url: "https://www.youtube.com/watch?v=cB01-h5DIfE" },
-                { title: "Yaralının Taşınmaya Hazırlanması ve Taşıma Şekilleri", url: "https://www.youtube.com/watch?v=W3YZfmFoCHk" },
-                { title: "Yaralıları Taşıma Yöntemleri", url: "https://www.youtube.com/watch?v=qd317JFKz6M" }
-              ].map((video, index) => (
-                <a
-                  key={index}
-                  href={video.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block p-3 md:p-4 bg-white rounded-lg shadow-md hover:shadow-2xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 hover:rotate-1 border border-gray-200 hover:border-red-300 card-flip group"
-                >
-                  <div className="card-flip-inner">
-                    <div className="flex items-start space-x-3">
-                      <div className="bg-green-100 p-2 rounded-full flex-shrink-0 group-hover:bg-green-200 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                        <svg className="w-4 h-4 text-green-600 group-hover:animate-pulse" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z"/>
-                        </svg>
+            <Link
+              to="/first-aid"
+              className="bg-gradient-to-br from-green-500 to-green-700 rounded-xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative"
+            >
+              <div className="absolute inset-0 bg-black/10"></div>
+              <div className="relative z-10 flex flex-col items-center text-center">
+                <div className="bg-white/20 p-6 rounded-full mb-4">
+                  <img 
+                    src="/images/ilk_yardim.png" 
+                    alt="İlk Yardım Bilgisi" 
+                    className="w-16 h-16 object-contain"
+                  />
                       </div>
-                      <div className="flex-1">
-                        <h4 className="text-sm font-semibold text-gray-900 mb-1 line-clamp-2 group-hover:text-green-600 transition-colors">
-                          {video.title}
-                        </h4>
-                        <p className="text-xs text-gray-500 group-hover:text-green-500 transition-colors">İlk Yardım Bilgisi</p>
+                <h3 className="text-xl font-bold mb-2">İlk Yardım Bilgisi</h3>
+                <p className="text-sm opacity-90">Temel ilk yardım teknikleri ve uygulamaları</p>
                     </div>
-                      <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
-                        <div className="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
-                    </div>
-                    </div>
-                  </div>
-                </a>
-              ))}
-                    </div>
-                  </div>
+            </Link>
 
           {/* Araç Tekniği */}
-          <div className="mb-12">
-            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-6 md:mb-8 text-center bg-purple-50 py-3 md:py-4 rounded-lg mx-4">
-              Araç Tekniği ve Motor Bilgisi
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-              {[
-                { title: "Araç Tekniği", url: "https://www.youtube.com/watch?v=6MsuxFbkIIE" },
-                { title: "Motorun ve Aracın Sistemleri", url: "https://www.youtube.com/watch?v=8cbLcU5KfsQ" },
-                { title: "Araca Binmeden Önce Yapılması Gereken Kontroller", url: "https://www.youtube.com/watch?v=dEmUOPU63e4" },
-                { title: "Aracın Çalıştırılması", url: "https://www.youtube.com/watch?v=Kbe9b_d0CUU" },
-                { title: "Gösterge Sistemi Görevi", url: "https://www.youtube.com/watch?v=3DP1qtGIbRI" },
-                { title: "Aydınlatma, İkaz Sistemi, Aktif ve Pasif Güvenlik Sistemleri", url: "https://www.youtube.com/watch?v=SB4TgMFuBig" },
-                { title: "Aktif ve Pasif Güvenlik Sistemleri", url: "https://www.youtube.com/watch?v=VUmnWZr8T9M" },
-                { title: "Rodaj ve Motorun Bakımları", url: "https://www.youtube.com/watch?v=CRNqSPwkVXM" },
-                { title: "Lastikler", url: "https://www.youtube.com/watch?v=LMiLeiGqQ1E" },
-                { title: "Aracın Durdurulması ve Kontrol Edilmesi Gereken Haller", url: "https://www.youtube.com/watch?v=1QmoLfLUFLk" },
-                { title: "Yakıt Ekonomisi, Tasarrufu", url: "https://www.youtube.com/watch?v=iuAx3QVAvTg" }
-              ].map((video, index) => (
-                <a
-                  key={index}
-                  href={video.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block p-3 md:p-4 bg-white rounded-lg shadow-md hover:shadow-2xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 hover:rotate-1 border border-gray-200 hover:border-red-300 card-flip group"
-                >
-                  <div className="card-flip-inner">
-                    <div className="flex items-start space-x-3">
-                      <div className="bg-purple-100 p-2 rounded-full flex-shrink-0 group-hover:bg-purple-200 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                        <svg className="w-4 h-4 text-purple-600 group-hover:animate-pulse" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z"/>
-                        </svg>
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="text-sm font-semibold text-gray-900 mb-1 line-clamp-2 group-hover:text-purple-600 transition-colors">
-                          {video.title}
-                        </h4>
-                        <p className="text-xs text-gray-500 group-hover:text-purple-500 transition-colors">Araç Tekniği</p>
-                      </div>
-                      <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
-                        <div className="w-2 h-2 bg-purple-600 rounded-full animate-pulse"></div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              ))}
-            </div>
-                  </div>
-
-          {/* Trafik Adabı */}
-          <div className="mb-8 md:mb-12">
-            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-6 md:mb-8 text-center bg-yellow-50 py-3 md:py-4 rounded-lg mx-4">
-              Trafik Adabı
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-              {[
-                { title: "Adap ve Trafik", url: "https://www.youtube.com/watch?v=gh67VNEYeNI" },
-                { title: "Trafikte Temel Değerler", url: "https://www.youtube.com/watch?v=FT-8UKCQobc" },
-                { title: "Trafikte Empati ve İletişim", url: "https://www.youtube.com/watch?v=avot-YL4LtM" },
-                { title: "Trafikte Hak İhlalleri", url: "https://www.youtube.com/watch?v=Qhhr62S9frk" },
-                { title: "Trafikte Diğerlerinin Sürücü Davranışlarına Etkisi", url: "https://www.youtube.com/watch?v=9X0OPhCxG7I" }
-              ].map((video, index) => (
-                <a
-                  key={index}
-                  href={video.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block p-3 md:p-4 bg-white rounded-lg shadow-md hover:shadow-2xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 hover:rotate-1 border border-gray-200 hover:border-red-300 card-flip group"
-                >
-                  <div className="card-flip-inner">
-                    <div className="flex items-start space-x-3">
-                      <div className="bg-yellow-100 p-2 rounded-full flex-shrink-0 group-hover:bg-yellow-200 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                        <svg className="w-4 h-4 text-yellow-600 group-hover:animate-pulse" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z"/>
-                        </svg>
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="text-sm font-semibold text-gray-900 mb-1 line-clamp-2 group-hover:text-yellow-600 transition-colors">
-                          {video.title}
-                        </h4>
-                        <p className="text-xs text-gray-500 group-hover:text-yellow-500 transition-colors">Trafik Adabı</p>
-                      </div>
-                      <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
-                        <div className="w-2 h-2 bg-yellow-600 rounded-full animate-pulse"></div>
-                  </div>
+            <Link
+              to="/vehicle-tech"
+              className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative"
+            >
+              <div className="absolute inset-0 bg-black/10"></div>
+              <div className="relative z-10 flex flex-col items-center text-center">
+                <div className="bg-white/20 p-6 rounded-full mb-4">
+                  <img 
+                    src="/images/motor_teknigi.png" 
+                    alt="Araç Tekniği" 
+                    className="w-16 h-16 object-contain"
+                  />
                 </div>
+                <h3 className="text-xl font-bold mb-2">Araç Tekniği</h3>
+                <p className="text-sm opacity-90">Motor ve araç sistemleri hakkında teknik bilgiler</p>
               </div>
-                </a>
-            ))}
-          </div>
+            </Link>
+
+            {/* Trafik Adabı */}
+            <Link
+              to="/traffic-etiquette"
+              className="bg-gradient-to-br from-yellow-500 to-yellow-700 rounded-xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative"
+            >
+              <div className="absolute inset-0 bg-black/10"></div>
+              <div className="relative z-10 flex flex-col items-center text-center">
+                <div className="bg-white/20 p-6 rounded-full mb-4">
+                  <img 
+                    src="/images/trafikte_saygi.png" 
+                    alt="Trafik Adabı" 
+                    className="w-16 h-16 object-contain"
+                  />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Trafik Adabı</h3>
+                <p className="text-sm opacity-90">Trafikte görgü kuralları ve etik davranışlar</p>
+              </div>
+            </Link>
           </div>
 
-          {/* Direksiyon Dersi */}
-          <div className="mb-8 md:mb-12">
-            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-6 md:mb-8 text-center bg-orange-50 py-3 md:py-4 rounded-lg mx-4">
-              Direksiyon Dersi
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-              {[
-                { title: "Acemi Sürücüler İçin Trafikte Bir Gün! / Sollama, Şerit İzleme", url: "https://www.youtube.com/watch?v=m6pjNPK0QhA" },
-                { title: "Detaylı Araç Kaldırma Teknikleri / Artık Stop Ettirmek Yok!", url: "https://www.youtube.com/watch?v=RWdcS5-DOxs" },
-                { title: "Rampada Araç Nasıl Kaldırılır? - Debriyaj ve Gaz İlişkisi", url: "https://www.youtube.com/watch?v=GpzNNS3BdYk" },
-                { title: "Direksiyon Sınavı Nasıl Yapılır? - Sınavı Kazanma Garantili", url: "https://www.youtube.com/watch?v=CW2luTyU07I" },
-                { title: "Ehliyet Alacaklar için Direksiyon Sınavı", url: "https://www.youtube.com/watch?v=9afxHI9KGCw" },
-                { title: "Araç Tanıma (İlk Adım) - Araç Nasıl Kaldırılır?", url: "https://www.youtube.com/watch?v=PwYqgd5q6AU" }
-              ].map((video, index) => (
-                <a
-                  key={index}
-                  href={video.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block p-3 md:p-4 bg-white rounded-lg shadow-md hover:shadow-2xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 hover:rotate-1 border border-gray-200 hover:border-red-300 card-flip group"
-                >
-                  <div className="card-flip-inner">
-                    <div className="flex items-start space-x-3">
-                      <div className="bg-orange-100 p-2 rounded-full flex-shrink-0 group-hover:bg-orange-200 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                        <svg className="w-4 h-4 text-orange-600 group-hover:animate-pulse" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z"/>
-                        </svg>
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="text-sm font-semibold text-gray-900 mb-1 line-clamp-2 group-hover:text-orange-600 transition-colors">
-                          {video.title}
-                        </h4>
-                        <p className="text-xs text-gray-500 group-hover:text-orange-500 transition-colors">Direksiyon Dersi</p>
-                      </div>
-                      <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
-                        <div className="w-2 h-2 bg-orange-600 rounded-full animate-pulse"></div>
-                      </div>
-                </div>
-              </div>
-                </a>
-            ))}
-            </div>
-          </div>
         </div>
       </section>
 

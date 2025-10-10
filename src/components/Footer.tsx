@@ -60,10 +60,21 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <h4 className="text-base md:text-lg font-semibold">Hizmetler</h4>
             <ul className="space-y-2 md:space-y-3">
-              <li className="text-gray-400">B Sınıfı Ehliyet</li>
-              <li className="text-gray-400">A Sınıfı Ehliyet</li>
-              <li className="text-gray-400">C Sınıfı Ehliyet</li>
-              <li className="text-gray-400">Online Sınavlar</li>
+              <li>
+                <Link to="/license/b" className="text-gray-400 hover:text-blue-400 transition-all duration-300 text-sm md:text-base hover:translate-x-1 inline-block">
+                  B Sınıfı Ehliyet
+                </Link>
+              </li>
+              <li>
+                <Link to="/license/a" className="text-gray-400 hover:text-blue-400 transition-all duration-300 text-sm md:text-base hover:translate-x-1 inline-block">
+                  A Sınıfı Ehliyet
+                </Link>
+              </li>
+              <li>
+                <Link to="/license/c" className="text-gray-400 hover:text-blue-400 transition-all duration-300 text-sm md:text-base hover:translate-x-1 inline-block">
+                  C Sınıfı Ehliyet
+                </Link>
+              </li>
             </ul>
           </div>
 
