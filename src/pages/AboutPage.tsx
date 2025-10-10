@@ -63,9 +63,9 @@ const AboutPage: React.FC = () => {
   ];
 
   return (
-    <div className="py-16">
+    <div className="py-0">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white overflow-hidden">
+      <section className="relative py-12 bg-gradient-to-r from-blue-600 to-blue-800 text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
