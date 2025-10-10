@@ -2,6 +2,11 @@ import React from 'react';
 import { Clock, Users, Award, BookOpen, Car, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+// Base path for assets
+const getAssetPath = (path: string) => {
+  return import.meta.env.PROD ? `/surucu_kursu_web${path}` : path;
+};
+
 const CoursesPage: React.FC = () => {
   const courses = [
     {
@@ -168,7 +173,7 @@ const CoursesPage: React.FC = () => {
               <div className="relative z-10 flex flex-col items-center text-center">
                 <div className="bg-white/20 p-6 rounded-full mb-4">
                   <img 
-                    src="/images/trafik_ve_cevre.png" 
+                    src={getAssetPath("/images/trafik_ve_cevre.png")}
                     alt="Trafik ve Çevre Bilgisi" 
                     className="w-16 h-16 object-contain"
                   />
@@ -187,7 +192,7 @@ const CoursesPage: React.FC = () => {
               <div className="relative z-10 flex flex-col items-center text-center">
                 <div className="bg-white/20 p-6 rounded-full mb-4">
                   <img 
-                    src="/images/ilk_yardim.png" 
+                    src={getAssetPath("/images/ilk_yardim.png")}
                     alt="İlk Yardım Bilgisi" 
                     className="w-16 h-16 object-contain"
                   />
@@ -206,7 +211,7 @@ const CoursesPage: React.FC = () => {
               <div className="relative z-10 flex flex-col items-center text-center">
                 <div className="bg-white/20 p-6 rounded-full mb-4">
                   <img 
-                    src="/images/motor_teknigi.png" 
+                    src={getAssetPath("/images/motor_teknigi.png")}
                     alt="Araç Tekniği" 
                     className="w-16 h-16 object-contain"
                   />
@@ -225,7 +230,7 @@ const CoursesPage: React.FC = () => {
               <div className="relative z-10 flex flex-col items-center text-center">
                 <div className="bg-white/20 p-6 rounded-full mb-4">
                   <img 
-                    src="/images/trafikte_saygi.png" 
+                    src={getAssetPath("/images/trafikte_saygi.png")}
                     alt="Trafik Adabı" 
                     className="w-16 h-16 object-contain"
                   />
