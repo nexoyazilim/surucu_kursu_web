@@ -192,10 +192,10 @@ const AboutPage: React.FC = () => {
                 viewport={{ once: true, amount: 0.5 }}
                 variants={fadeInUp}
             >
-              <h2 className="text-3xl font-bold text-white mb-4">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
                 Misyonumuz, Vizyonumuz & Değerlerimiz
               </h2>
-              <p className="text-xl text-white/80">
+              <p className="text-xl text-gray-600 dark:text-gray-300">
                 Bizi yönlendiren ilkeler ve hedefler
               </p>
             </motion.div>
