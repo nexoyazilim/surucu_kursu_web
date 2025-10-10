@@ -1,0 +1,108 @@
+{
+  "lastUpdated": "2024-01-15T10:30:00Z",
+  "pricing": {
+    "licenses": [
+      {
+        "type": "100 CEZA",
+        "category": "ceza",
+        "price": "11.000,00"
+      },
+      {
+        "type": "A1",
+        "category": "ehliyet",
+        "price": "13.000,00"
+      },
+      {
+        "type": "A2", 
+        "category": "ehliyet",
+        "price": "14.000,00"
+      },
+      {
+        "type": "A",
+        "category": "ehliyet", 
+        "price": "16.000,00"
+      },
+      {
+        "type": "B",
+        "category": "ehliyet",
+        "price": "17.500,00"
+      },
+      {
+        "type": "B ENGELLİ",
+        "category": "ehliyet",
+        "price": "20.000,00"
+      }
+    ],
+    "upgrades": [
+      {
+        "from": "A1",
+        "to": "A2",
+        "price": "12.000,00"
+      },
+      {
+        "from": "A1 A2",
+        "to": "A",
+        "price": "15.000,00"
+      },
+      {
+        "from": "A1 A2 A",
+        "to": "B",
+        "price": "17.500,00"
+      },
+      {
+        "from": "B",
+        "to": "A1",
+        "price": "10.000,00"
+      },
+      {
+        "from": "B",
+        "to": "A2",
+        "price": "12.000,00"
+      },
+      {
+        "from": "B",
+        "to": "A",
+        "price": "15.000,00"
+      },
+      {
+        "from": "B",
+        "to": "BE",
+        "price": "15.000,00"
+      },
+      {
+        "from": "B",
+        "to": "C",
+        "price": "18.000,00"
+      },
+      {
+        "from": "B",
+        "to": "D",
+        "price": "18.000,00"
+      },
+      {
+        "from": "B",
+        "to": "D1",
+        "price": "14.000,00"
+      },
+      {
+        "from": "C",
+        "to": "CE",
+        "price": "15.000,00"
+      }
+    ],
+    "exams": {
+      "teorik": "900,00",
+      "direksiyon": "1.350,00"
+    },
+    "taxes": {
+      "A1-A2-A": "3.643,10",
+      "B": "7.438,60",
+      "C-CE-D1-D-DE": "11.235,60"
+    },
+    "services": {
+      "direksiyonIkinciHak": "13.500,00",
+      "sinavdanKalan": "3.250,00",
+      "ozelDers": "1.000,00"
+    }
+  }
+}

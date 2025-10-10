@@ -1,0 +1,32 @@
+{
+  "lastUpdated": "2024-01-15T10:30:00Z",
+  "contact": {
+    "companyName": "Sürücü Akademi",
+    "phone": "(312) 123-4567",
+    "email": "info@surucu-akademi.com",
+    "address": {
+      "street": "123 Sürücü Akademi Caddesi",
+      "district": "Çankaya",
+      "city": "Ankara",
+      "postalCode": "06000",
+      "country": "Türkiye"
+    },
+    "workingHours": {
+      "weekdays": "08:00 - 18:00",
+      "saturday": "09:00 - 16:00",
+      "sunday": "Kapalı"
+    },
+    "branches": [
+      {
+        "name": "Merkez Şube (Çankaya)",
+        "address": "123 Sürücü Akademi Cad. Çankaya/Ankara",
+        "phone": "(312) 123-4567"
+      },
+      {
+        "name": "Keçiören Şubesi",
+        "address": "456 Eğitim Sok. Keçiören/Ankara",
+        "phone": "(312) 987-6543"
+      }
+    ]
+  }
+}

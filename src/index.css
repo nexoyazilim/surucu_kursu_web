@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.8s ease-out;
+}
+
+.animate-bounceIn {
+  animation: bounceIn 0.8s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.hover-rotate {
+  transition: transform 0.3s ease;
+}
+
+.hover-rotate:hover {
+  transform: rotate(5deg) scale(1.05);
+}
+
+.card-flip {
+  perspective: 1000px;
+}
+
+.card-flip-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-flip:hover .card-flip-inner {
+  transform: rotateY(10deg) rotateX(5deg);
+}
+
+/* Override dark mode styles to force light theme */
+html {
+  color-scheme: light;
+}
+
+/* Force all elements to use light theme colors */
+* {
+  --tw-bg-opacity: 1;
+}
+
+/* Override specific dark mode classes */
+.dark\:bg-gray-900 {
+  background-color: rgb(249 250 251) !important;
+}
+
+.dark\:bg-gray-800 {
+  background-color: rgb(255 255 255) !important;
+}
+
+.dark\:bg-gray-700 {
+  background-color: rgb(249 250 251) !important;
+}
+
+.dark\:text-white {
+  color: rgb(17 24 39) !important;
+}
+
+.dark\:text-gray-300 {
+  color: rgb(75 85 99) !important;
+}
+
+.dark\:text-gray-400 {
+  color: rgb(107 114 128) !important;
+}
+
+.dark\:text-blue-400 {
+  color: rgb(59 130 246) !important;
+}
+
+.dark\:border-gray-700 {
+  border-color: rgb(229 231 235) !important;
+}
+
+.dark\:border-gray-600 {
+  border-color: rgb(229 231 235) !important;
+}
+
+.dark\:border-blue-800 {
+  border-color: rgb(191 219 254) !important;
+}
+
+.dark\:hover\:bg-gray-700:hover {
+  background-color: rgb(249 250 251) !important;
+}
+
+.dark\:hover\:bg-gray-800:hover {
+  background-color: rgb(249 250 251) !important;
+}
+
+.dark\:hover\:text-white:hover {
+  color: rgb(17 24 39) !important;
+}
+
+/* Background overrides for better white theme */
+.bg-gray-50 {
+  background-color: rgb(255 255 255) !important;
+}
+
+.dark\:from-gray-900 {
+  --tw-gradient-from: rgb(255 255 255) !important;
+}
+
+.dark\:via-gray-900 {
+  --tw-gradient-via: rgb(255 255 255) !important;
+}
+
+.dark\:to-blue-900\/20 {
+  --tw-gradient-to: rgb(219 234 254) !important;
+}

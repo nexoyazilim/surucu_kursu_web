@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sürücü Akademi - Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen py-8">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h1 class="text-2xl font-bold text-gray-900 mb-6">🚗 Sürücü Akademi - Veri Yönetimi</h1>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Fiyat Yönetimi -->
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h2 class="text-lg font-semibold text-blue-900 mb-4">💰 Fiyat Yönetimi</h2>
+                        <div class="space-y-2">
+                            <button onclick="editPricing()" class="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                                Fiyatları Düzenle
+                            </button>
+                            <button onclick="downloadPricing()" class="w-full bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                                JSON İndir
+                            </button>
+                            <input type="file" id="pricingFile" accept=".json" style="display: none;" onchange="uploadPricing(event)">
+                            <button onclick="document.getElementById('pricingFile').click()" class="w-full bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700">
+                                JSON Yükle
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- İletişim Yönetimi -->
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h2 class="text-lg font-semibold text-green-900 mb-4">📞 İletişim Yönetimi</h2>
+                        <div class="space-y-2">
+                            <button onclick="editContact()" class="w-full bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                                İletişim Bilgilerini Düzenle
+                            </button>
+                            <button onclick="downloadContact()" class="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                                JSON İndir
+                            </button>
+                            <input type="file" id="contactFile" accept=".json" style="display: none;" onchange="uploadContact(event)">
+                            <button onclick="document.getElementById('contactFile').click()" class="w-full bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700">
+                                JSON Yükle
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Düzenleme Alanı -->
+                <div id="editArea" class="mt-6 hidden">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Düzenleme Alanı</h3>
+                    <textarea id="jsonEditor" class="w-full h-96 p-4 border border-gray-300 rounded-lg font-mono text-sm" placeholder="JSON verisi buraya yüklenecek..."></textarea>
+                    <div class="mt-4 flex gap-4">
+                        <button onclick="saveChanges()" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
+                            Değişiklikleri Kaydet
+                        </button>
+                        <button onclick="cancelEdit()" class="bg-gray-600 text-white px-6 py-2 rounded hover:bg-gray-700">
+                            İptal
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Talimatlar -->
+                <div class="mt-8 bg-yellow-50 p-4 rounded-lg">
+                    <h3 class="text-lg font-semibold text-yellow-900 mb-2">📋 Kullanım Talimatları</h3>
+                    <ol class="list-decimal list-inside text-yellow-800 space-y-1 text-sm">
+                        <li>Düzenlemek istediğiniz veri tipini seçin (Fiyat veya İletişim)</li>
+                        <li>JSON verilerini düzenleyin</li>
+                        <li>"Değişiklikleri Kaydet" butonuna basın</li>
+                        <li>Dosyayı sunucunuza yükleyin: <code>/public/data/</code> klasörüne</li>
+                        <li>Site otomatik olarak yeni verileri yükleyecektir</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentDataType = '';
+        
+        async function editPricing() {
+            currentDataType = 'pricing';
+            try {
+                const response = await fetch('/data/pricing.json');
+                const data = await response.json();
+                document.getElementById('jsonEditor').value = JSON.stringify(data, null, 2);
+                document.getElementById('editArea').classList.remove('hidden');
+            } catch (error) {
+                alert('Fiyat verileri yüklenemedi: ' + error.message);
+            }
+        }
+
+        async function editContact() {
+            currentDataType = 'contact';
+            try {
+                const response = await fetch('/data/contact.json');
+                const data = await response.json();
+                document.getElementById('jsonEditor').value = JSON.stringify(data, null, 2);
+                document.getElementById('editArea').classList.remove('hidden');
+            } catch (error) {
+                alert('İletişim verileri yüklenemedi: ' + error.message);
+            }
+        }
+
+        function saveChanges() {
+            try {
+                const jsonData = JSON.parse(document.getElementById('jsonEditor').value);
+                jsonData.lastUpdated = new Date().toISOString();
+                
+                const blob = new Blob([JSON.stringify(jsonData, null, 2)], {type: 'application/json'});
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `${currentDataType}.json`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                alert('JSON dosyası indirildi! Şimdi bu dosyayı sunucunuzun /public/data/ klasörüne yükleyin.');
+            } catch (error) {
+                alert('JSON formatı hatalı: ' + error.message);
+            }
+        }
+
+        function cancelEdit() {
+            document.getElementById('editArea').classList.add('hidden');
+            document.getElementById('jsonEditor').value = '';
+        }
+
+        function downloadPricing() {
+            fetch('/data/pricing.json')
+                .then(response => response.json())
+                .then(data => {
+                    const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'pricing.json';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                });
+        }
+
+        function downloadContact() {
+            fetch('/data/contact.json')
+                .then(response => response.json())
+                .then(data => {
+                    const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'contact.json';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                });
+        }
+
+        function uploadPricing(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        const data = JSON.parse(e.target.result);
+                        currentDataType = 'pricing';
+                        document.getElementById('jsonEditor').value = JSON.stringify(data, null, 2);
+                        document.getElementById('editArea').classList.remove('hidden');
+                    } catch (error) {
+                        alert('JSON formatı hatalı: ' + error.message);
+                    }
+                };
+                reader.readAsText(file);
+            }
+        }
+
+        function uploadContact(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        const data = JSON.parse(e.target.result);
+                        currentDataType = 'contact';
+                        document.getElementById('jsonEditor').value = JSON.stringify(data, null, 2);
+                        document.getElementById('editArea').classList.remove('hidden');
+                    } catch (error) {
+                        alert('JSON formatı hatalı: ' + error.message);
+                    }
+                };
+                reader.readAsText(file);
+            }
+        }
+    </script>
+</body>
+</html>
