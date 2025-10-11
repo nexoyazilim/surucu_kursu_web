@@ -1,61 +1,117 @@
-import React, { useState } from 'react';
-import { Check, ArrowRight, Star, Phone, Mail, MapPin } from 'lucide-react';
-import { usePricingData } from '../hooks/useData';
+import React from 'react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 const PricingPage: React.FC = () => {
-  const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
-  const { data: pricingData, loading, error } = usePricingData();
-
-  const pricingPlans = [
-    {
-      title: "B Sınıfı Ehliyet",
-      subtitle: "Otomobil Ehliyeti",
-      price: "5.000",
-      description: "Otomobil ehliyeti için temel paketimiz, teorik dersler, direksiyon eğitimi ve sınav hazırlığını içerir.",
-      features: [
-        "30 saat teorik ders",
-        "20 saat direksiyon dersi", 
-        "Online deneme sınavları",
-        "Sınav hazırlık materyalleri",
-        "Bireysel eğitmen desteği",
-        "Araç tahsisi"
+  
+  // Sabit fiyat verileri
+  const pricingData = {
+    pricing: {
+      licenses: [
+        {
+          type: "100 CEZA",
+          category: "ceza",
+          price: "11.000,00"
+        },
+        {
+          type: "A1",
+          category: "ehliyet",
+          price: "13.000,00"
+        },
+        {
+          type: "A2", 
+          category: "ehliyet",
+          price: "14.000,00"
+        },
+        {
+          type: "A",
+          category: "ehliyet", 
+          price: "16.000,00"
+        },
+        {
+          type: "B",
+          category: "ehliyet",
+          price: "17.500,00"
+        },
+        {
+          type: "B ENGELLİ",
+          category: "ehliyet",
+          price: "20.000,00"
+        }
       ],
-      popular: true,
-      image: "https://images.pexels.com/photos/1028434/pexels-photo-1028434.jpeg?auto=compress&cs=tinysrgb&w=400"
-    },
-    {
-      title: "A Sınıfı Ehliyet", 
-      subtitle: "Motosiklet Ehliyeti",
-      price: "7.500",
-      description: "Motosiklet ehliyeti için kapsamlı paketimiz, güvenli sürüş teknikleri ve ileri seviye eğitimleri kapsar.",
-      features: [
-        "25 saat teorik ders",
-        "25 saat pratik eğitim",
-        "Motosiklet tahsisi", 
-        "Güvenlik ekipmanları",
-        "Deneyimli eğitmenler",
-        "Sınav garantisi"
+      upgrades: [
+        {
+          from: "A1",
+          to: "A2",
+          price: "12.000,00"
+        },
+        {
+          from: "A1 A2",
+          to: "A",
+          price: "15.000,00"
+        },
+        {
+          from: "A1 A2 A",
+          to: "B",
+          price: "17.500,00"
+        },
+        {
+          from: "B",
+          to: "A1",
+          price: "10.000,00"
+        },
+        {
+          from: "B",
+          to: "A2",
+          price: "12.000,00"
+        },
+        {
+          from: "B",
+          to: "A",
+          price: "15.000,00"
+        },
+        {
+          from: "B",
+          to: "BE",
+          price: "15.000,00"
+        },
+        {
+          from: "B",
+          to: "C",
+          price: "18.000,00"
+        },
+        {
+          from: "B",
+          to: "D",
+          price: "18.000,00"
+        },
+        {
+          from: "B",
+          to: "D1",
+          price: "14.000,00"
+        },
+        {
+          from: "C",
+          to: "CE",
+          price: "15.000,00"
+        }
       ],
-      popular: false,
-      image: "https://images.pexels.com/photos/2112236/pexels-photo-2112236.jpeg?auto=compress&cs=tinysrgb&w=400"
-    },
-    {
-      title: "C Sınıfı Ehliyet",
-      subtitle: "Kamyon Ehliyeti", 
-      price: "10.000",
-      description: "Kamyon ehliyeti için profesyonel paketimiz, ticari sürüş standartları ve yük taşıma eğitimlerini içerir.",
-      features: [
-        "40 saat teorik ders",
-        "30 saat pratik eğitim",
-        "Ticari araç eğitimi",
-        "Yük taşıma kuralları",
-        "Profesyonel sertifikasyon", 
-        "İş imkanı desteği"
-      ],
-      popular: false,
-      image: "https://images.pexels.com/photos/1212407/pexels-photo-1212407.jpeg?auto=compress&cs=tinysrgb&w=400"
+      exams: {
+        teorik: "900,00",
+        direksiyon: "1.350,00"
+      },
+      taxes: {
+        "A1-A2-A": "3.643,10",
+        "B": "7.438,60",
+        "C-CE-D1-D-DE": "11.235,60"
+      },
+      services: {
+        direksiyonIkinciHak: "13.500,00",
+        sinavdanKalan: "3.250,00",
+        ozelDers: "1.000,00"
+      }
     }
-  ];
+  };
+
 
   const faqItems = [
     {
@@ -76,26 +132,6 @@ const PricingPage: React.FC = () => {
     }
   ];
 
-  if (loading) {
-    return (
-      <div className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Fiyat bilgileri yükleniyor...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-red-600">Fiyat bilgileri yüklenirken hata oluştu: {error}</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="py-16">
@@ -138,7 +174,7 @@ const PricingPage: React.FC = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {pricingData?.pricing.licenses.map((license, index) => (
+                    {pricingData.pricing.licenses.map((license, index) => (
                       <tr key={index} className="border-b border-gray-100 dark:border-gray-800">
                         <td className="py-2 md:py-3 px-1 md:px-2 text-gray-700 dark:text-gray-300">{license.type}</td>
                         <td className="py-2 md:py-3 px-1 md:px-2 text-gray-700 dark:text-gray-300">-</td>
@@ -170,7 +206,7 @@ const PricingPage: React.FC = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {pricingData?.pricing.upgrades.map((upgrade, index) => (
+                    {pricingData.pricing.upgrades.map((upgrade, index) => (
                       <tr key={index} className="border-b border-gray-100 dark:border-gray-800">
                         <td className="py-2 md:py-3 px-1 md:px-2 text-gray-700 dark:text-gray-300">{upgrade.from}</td>
                         <td className="py-2 md:py-3 px-1 md:px-2 text-gray-700 dark:text-gray-300">{upgrade.to}</td>
@@ -198,11 +234,11 @@ const PricingPage: React.FC = () => {
               <div className="space-y-3">
                 <div className="flex justify-between items-center py-2 border-b border-gray-100 dark:border-gray-800">
                   <span className="text-gray-700 dark:text-gray-300">Teorik Sınav</span>
-                  <span className="font-semibold text-gray-900 dark:text-white">{pricingData?.pricing.exams.teorik} ₺</span>
+                  <span className="font-semibold text-gray-900 dark:text-white">{pricingData.pricing.exams.teorik} ₺</span>
                 </div>
                 <div className="flex justify-between items-center py-2">
                   <span className="text-gray-700 dark:text-gray-300">Direksiyon Sınavı</span>
-                  <span className="font-semibold text-gray-900 dark:text-white">{pricingData?.pricing.exams.direksiyon} ₺</span>
+                  <span className="font-semibold text-gray-900 dark:text-white">{pricingData.pricing.exams.direksiyon} ₺</span>
                 </div>
               </div>
               </div>
@@ -218,7 +254,7 @@ const PricingPage: React.FC = () => {
                   <span className="group-hover:animate-pulse">💸 Vergiler</span>
                 </h3>
               <div className="space-y-3">
-                {pricingData?.pricing.taxes && Object.entries(pricingData.pricing.taxes).map(([key, value], index) => (
+                {Object.entries(pricingData.pricing.taxes).map(([key, value], index) => (
                   <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 dark:border-gray-800 last:border-b-0">
                     <span className="text-gray-700 dark:text-gray-300">{key}</span>
                     <span className="font-semibold text-gray-900 dark:text-white">{value} ₺</span>
@@ -240,15 +276,15 @@ const PricingPage: React.FC = () => {
               <div className="space-y-3">
                 <div className="flex justify-between items-center py-2 border-b border-gray-100 dark:border-gray-800">
                   <span className="text-gray-700 dark:text-gray-300 text-sm">Direksiyon İkinci Dört Hak</span>
-                  <span className="font-semibold text-gray-900 dark:text-white">{pricingData?.pricing.services.direksiyonIkinciHak} ₺</span>
+                  <span className="font-semibold text-gray-900 dark:text-white">{pricingData.pricing.services.direksiyonIkinciHak} ₺</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-gray-100 dark:border-gray-800">
                   <span className="text-gray-700 dark:text-gray-300 text-sm">Sınavdan Kalan Aday</span>
-                  <span className="font-semibold text-gray-900 dark:text-white">{pricingData?.pricing.services.sinavdanKalan} ₺</span>
+                  <span className="font-semibold text-gray-900 dark:text-white">{pricingData.pricing.services.sinavdanKalan} ₺</span>
                 </div>
                 <div className="flex justify-between items-center py-2">
                   <span className="text-gray-700 dark:text-gray-300">Özel Ders</span>
-                  <span className="font-semibold text-gray-900 dark:text-white">{pricingData?.pricing.services.ozelDers} ₺</span>
+                  <span className="font-semibold text-gray-900 dark:text-white">{pricingData.pricing.services.ozelDers} ₺</span>
                 </div>
               </div>
               </div>
