@@ -36,7 +36,7 @@ const ContactPage: React.FC = () => {
     ];
 
   return (
-    <div className="bg-white dark:bg-gray-950">
+    <div className="bg-white dark:bg-blue-950">
       {/* Hero Section */}
       <motion.section 
         className="relative py-24 bg-gradient-to-r from-blue-600 to-blue-800 text-white overflow-hidden"
@@ -80,7 +80,7 @@ const ContactPage: React.FC = () => {
       </section>
       
       {/* Contact Form & Map Section */}
-      <section className="py-20 bg-white dark:bg-gray-950">
+      <section className="py-20 bg-white dark:bg-blue-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div className="text-center mb-16" initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.5 }} variants={fadeInUp}>
             <h2 className="text-3xl font-bold text-white mb-4">Bize Mesaj Gönderin</h2>
@@ -160,7 +160,7 @@ const ContactPage: React.FC = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white dark:bg-gray-950">
+      <section className="py-20 bg-white dark:bg-blue-950">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div className="text-center mb-16" initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.5 }} variants={fadeInUp}>
                 <h2 className="text-3xl font-bold text-white mb-4">Sıkça Sorulan Sorular</h2>

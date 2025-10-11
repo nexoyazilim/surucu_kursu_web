@@ -101,7 +101,7 @@ const AboutPage: React.FC = () => {
   };
   
   return (
-    <div className="bg-white dark:bg-gray-950">
+    <div className="bg-white dark:bg-blue-950">
       {/* Hero Section */}
       <motion.section 
         className="relative py-24 bg-gradient-to-r from-blue-600 to-blue-800 text-white overflow-hidden"
@@ -183,7 +183,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Mission Vision Values */}
-      <section className="py-20 bg-white dark:bg-gray-950">
+      <section className="py-20 bg-white dark:bg-blue-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
                 className="text-center mb-16"
@@ -192,10 +192,10 @@ const AboutPage: React.FC = () => {
                 viewport={{ once: true, amount: 0.5 }}
                 variants={fadeInUp}
             >
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-3xl font-bold text-white mb-4">
                 Misyonumuz, Vizyonumuz & Değerlerimiz
               </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300">
+              <p className="text-xl font-bold text-white/80">
                 Bizi yönlendiren ilkeler ve hedefler
               </p>
             </motion.div>
@@ -320,7 +320,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-white dark:bg-gray-950">
+      <section className="py-20 bg-white dark:bg-blue-950">
           {/* ... Diğer bölümlerle benzer şekilde animasyonlar eklenebilir. Şimdilik bu kısmı sade bırakıyorum. */}
           {/* ... Örnek: Tıpkı Stats bölümü gibi bu bölümü de motion.div ile sarmalayıp stagger ve fadeInUp efektleri verebilirsiniz. */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
