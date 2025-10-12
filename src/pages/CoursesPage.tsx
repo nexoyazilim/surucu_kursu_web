@@ -1,13 +1,14 @@
 import React from 'react';
-import { Clock, Users, Award, BookOpen, Car, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Car, Users, Shield, Award } from 'lucide-react';
 
-// Base path for assets
+// Base path for assets - BU FONKSİYON OLDUĞU GİBİ KALDI
 const getAssetPath = (path: string) => {
   return import.meta.env.PROD ? `/surucu_kursu_web${path}` : path;
 };
 
 const CoursesPage: React.FC = () => {
+  // VERİLERİNİZDE HİÇBİR DEĞİŞİKLİK YAPILMADI
   const courses = [
     {
       title: "Temel Sürücü Kursu (B Sınıfı)",
@@ -79,142 +80,134 @@ const CoursesPage: React.FC = () => {
     {
       icon: Car,
       title: "Modern Araç Filosu",
-      description: "En son güvenlik teknolojileri ile donatılmış araçlarımızla eğitim alın."
+      description: "En son güvenlik teknolojileri ile donatılmış araçlarımızla eğitim alın.",
+      gradient: "from-blue-600 to-cyan-600"
     },
     {
       icon: Users,
       title: "Uzman Eğitmenler", 
-      description: "Sertifikalı ve deneyimli eğitmenlerimizden profesyonel eğitim alın."
+      description: "Sertifikalı ve deneyimli eğitmenlerimizden profesyonel eğitim alın.",
+      gradient: "from-green-600 to-emerald-600"
     },
     {
       icon: Shield,
       title: "Güvenlik Önceliği",
-      description: "Tüm eğitimlerimizde güvenlik en yüksek öncelik olarak ele alınır."
+      description: "Tüm eğitimlerimizde güvenlik en yüksek öncelik olarak ele alınır.",
+      gradient: "from-purple-600 to-pink-600"
     },
     {
       icon: Award,
       title: "Sertifikalı Eğitim",
-      description: "Tüm kurslarımız resmi otoriteler tarafından onaylanmış programlardır."
+      description: "Tüm kurslarımız resmi otoriteler tarafından onaylanmış programlardır.",
+      gradient: "from-orange-600 to-yellow-600"
+    }
+  ];
+
+  // Video konularına da ContactPage'deki gibi gradyan renkleri eklendi.
+  const videoTopics = [
+    {
+      to: "/traffic-knowledge",
+      image: getAssetPath("/images/trafik_ve_cevre.png"),
+      alt: "Trafik ve Çevre Bilgisi",
+      title: "Trafik ve Çevre Bilgisi",
+      description: "Trafik kuralları ve çevre bilgisi hakkında kapsamlı eğitim videoları",
+      gradient: "from-blue-500 to-blue-700"
+    },
+    {
+      to: "/first-aid",
+      image: getAssetPath("/images/ilk_yardim.png"),
+      alt: "İlk Yardım Bilgisi",
+      title: "İlk Yardım Bilgisi",
+      description: "Temel ilk yardım teknikleri ve uygulamaları",
+      gradient: "from-green-500 to-green-700"
+    },
+    {
+      to: "/vehicle-tech",
+      image: getAssetPath("/images/motor_teknigi.png"),
+      alt: "Araç Tekniği",
+      title: "Araç Tekniği",
+      description: "Motor ve araç sistemleri hakkında teknik bilgiler",
+      gradient: "from-purple-500 to-purple-700"
+    },
+    {
+      to: "/traffic-etiquette",
+      image: getAssetPath("/images/trafikte_saygi.png"),
+      alt: "Trafik Adabı",
+      title: "Trafik Adabı",
+      description: "Trafikte görgü kuralları ve etik davranışlar",
+      gradient: "from-orange-500 to-red-500"
     }
   ];
 
   return (
-    <div className="py-0">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 px-4">
+    <div className="bg-gradient-to-b from-white to-gray-50">
+      {/* Hero Section - ContactPage ile aynı stil */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542037104857-e617d3b4b8a2?w=1200')] bg-cover bg-center opacity-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-900"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+          <div className="inline-block mb-6">
+            <div className="bg-blue-600/20 backdrop-blur-sm border border-blue-400/30 rounded-full px-6 py-2 text-sm font-semibold text-blue-300">
+              Kaliteli Eğitim Programları
+            </div>
+          </div>
+          
+          <h1 className="text-5xl md:text-6xl font-black mb-6 text-white">
             Sürücü Kursları
           </h1>
-          <p className="text-lg md:text-xl lg:text-2xl opacity-90 max-w-3xl mx-auto px-4 leading-relaxed">
-            Profesyonel eğitmenlerimiz ve modern araç filomuz ile güvenli sürüş öğrenin. 
-            Her seviyeye uygun kurslarımız ile hayalinizdeki ehliyete sahip olun.
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Profesyonel eğitmenlerimiz ve modern araç filomuz ile güvenli sürüş öğrenin. Her seviyeye uygun kurslarımız ile hayalinizdeki ehliyete sahip olun.
           </p>
         </div>
       </section>
 
-            {/* Video Links Section */}
-            <section className="py-20 bg-gray-50">
+      {/* Video Links Section - ContactPage kart stiliyle güncellendi */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 md:mb-20 px-4">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
               Videolu Konu Anlatımları
             </h2>
-            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Uzman eğitmenlerimizin hazırladığı detaylı konu anlatım videoları ile öğrenin.
             </p>
           </div>
 
-          {/* Kurs Kategorileri */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
-          {/* Trafik ve Çevre Bilgisi */}
-            <Link
-              to="/traffic-knowledge"
-              className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative"
-            >
-              <div className="absolute inset-0 bg-black/10"></div>
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <div className="bg-white/20 p-6 rounded-full mb-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {videoTopics.map((topic, index) => (
+              <Link
+                key={index}
+                to={topic.to}
+                className="group block bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 hover:shadow-2xl hover:border-blue-200 transition-all duration-500 transform hover:-translate-y-2 text-center"
+              >
+                <div className={`bg-gradient-to-br ${topic.gradient} w-24 h-24 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300 p-3`}>
                   <img 
-                    src={getAssetPath("/images/trafik_ve_cevre.png")}
-                    alt="Trafik ve Çevre Bilgisi" 
-                    className="w-16 h-16 object-contain"
+                    src={topic.image}
+                    alt={topic.alt} 
+                    className="w-full h-full object-contain"
                   />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Trafik ve Çevre Bilgisi</h3>
-                <p className="text-sm opacity-90">Trafik kuralları ve çevre bilgisi hakkında kapsamlı eğitim videoları</p>
-              </div>
-            </Link>
-
-          {/* İlk Yardım */}
-            <Link
-              to="/first-aid"
-              className="bg-gradient-to-br from-green-500 to-green-700 rounded-xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative"
-            >
-              <div className="absolute inset-0 bg-black/10"></div>
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <div className="bg-white/20 p-6 rounded-full mb-4">
-                  <img 
-                    src={getAssetPath("/images/ilk_yardim.png")}
-                    alt="İlk Yardım Bilgisi" 
-                    className="w-16 h-16 object-contain"
-                  />
-                      </div>
-                <h3 className="text-xl font-bold mb-2">İlk Yardım Bilgisi</h3>
-                <p className="text-sm opacity-90">Temel ilk yardım teknikleri ve uygulamaları</p>
-                    </div>
-            </Link>
-
-          {/* Araç Tekniği */}
-            <Link
-              to="/vehicle-tech"
-              className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative"
-            >
-              <div className="absolute inset-0 bg-black/10"></div>
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <div className="bg-white/20 p-6 rounded-full mb-4">
-                  <img 
-                    src={getAssetPath("/images/motor_teknigi.png")}
-                    alt="Araç Tekniği" 
-                    className="w-16 h-16 object-contain"
-                  />
-                </div>
-                <h3 className="text-xl font-bold mb-2">Araç Tekniği</h3>
-                <p className="text-sm opacity-90">Motor ve araç sistemleri hakkında teknik bilgiler</p>
-              </div>
-            </Link>
-
-            {/* Trafik Adabı */}
-            <Link
-              to="/traffic-etiquette"
-              className="bg-gradient-to-br from-yellow-500 to-yellow-700 rounded-xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative"
-            >
-              <div className="absolute inset-0 bg-black/10"></div>
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <div className="bg-white/20 p-6 rounded-full mb-4">
-                  <img 
-                    src={getAssetPath("/images/trafikte_saygi.png")}
-                    alt="Trafik Adabı" 
-                    className="w-16 h-16 object-contain"
-                  />
-                </div>
-                <h3 className="text-xl font-bold mb-2">Trafik Adabı</h3>
-                <p className="text-sm opacity-90">Trafikte görgü kuralları ve etik davranışlar</p>
-              </div>
-            </Link>
+                <h3 className="text-xl font-black text-gray-900 mb-2">
+                  {topic.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {topic.description}
+                </p>
+              </Link>
+            ))}
           </div>
-
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+      {/* Features Section - ContactPage ikonlu kart stiliyle güncellendi */}
+      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
               Neden Sürücü Akademi'yi Seçmelisiniz?
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Kaliteli eğitim ve güvenilir hizmet anlayışımızla öne çıkıyoruz.
             </p>
           </div>
@@ -225,15 +218,15 @@ const CoursesPage: React.FC = () => {
               return (
                 <div
                   key={index}
-                  className="text-center p-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                  className="group bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 hover:shadow-2xl hover:border-blue-200 transition-all duration-500 transform hover:-translate-y-2"
                 >
-                  <div className="bg-blue-100 dark:bg-blue-900/30 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <IconComponent className="h-8 w-8 text-blue-600 dark:text-blue-400" />
+                  <div className={`bg-gradient-to-br ${feature.gradient} w-20 h-20 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <IconComponent className="h-10 w-10 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                  <h3 className="text-xl font-black text-gray-900 mb-4">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-gray-600 leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
@@ -242,11 +235,6 @@ const CoursesPage: React.FC = () => {
           </div>
         </div>
       </section>
-
-
-
-
-
     </div>
   );
 };

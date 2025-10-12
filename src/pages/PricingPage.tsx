@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Check, Star, TrendingUp, Award, Users, Clock, Shield, Target, Zap } from 'lucide-react';
 
 const PricingPage = () => {
