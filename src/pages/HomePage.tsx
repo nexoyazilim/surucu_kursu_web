@@ -183,7 +183,7 @@ const HomePage = () => {
       </section>
 
       {/* Video/Courses Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-10 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">Eğitim Programlarımız</span>
@@ -245,7 +245,7 @@ const HomePage = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-white">
+      <section className="py-5 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -430,7 +430,7 @@ const HomePage = () => {
       </section>
 
       {/* Resources */}
-      <section className="py-20 bg-white">
+      <section className="py-5 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">Öğrenme Kaynakları</span>
@@ -478,53 +478,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <Car className="absolute top-10 left-10 h-32 w-32 animate-pulse" />
-          <Car className="absolute bottom-10 right-10 h-32 w-32 animate-pulse" style={{animationDelay: '1s'}} />
-        </div>
-        
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            Hemen Başlayın!
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Ehliyetinize giden yolda ilk adımı atmak için bugün bize katılın. 
-            Ücretsiz danışmanlık için hemen iletişime geçin.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Link
-              to="/register"
-              className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl"
-            >
-              Online Kayıt
-            </Link>
-            <a
-              href="tel:+903121234567"
-              className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-bold px-8 py-4 rounded-xl text-lg border-2 border-white/30 transition-all duration-300 transform hover:scale-105"
-            >
-              (0312) 123 45 67
-            </a>
-          </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-blue-100">
-            <div className="flex items-center gap-2">
-              <MapPin className="h-5 w-5" />
-              <span>Ankara, Çankaya</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Mail className="h-5 w-5" />
-              <span>info@surucukursu.com</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Clock className="h-5 w-5" />
-              <span>Pzt-Cmt: 09:00 - 18:00</span>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Blog/News Section */}
       <section className="py-20 bg-gray-50">
@@ -602,7 +556,7 @@ const HomePage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white">
+      <section className="py-5 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">Merak Edilenler</span>
@@ -665,6 +619,55 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+            {/* CTA Section */}
+            <section className="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <Car className="absolute top-10 left-10 h-32 w-32 animate-pulse" />
+          <Car className="absolute bottom-10 right-10 h-32 w-32 animate-pulse" style={{animationDelay: '1s'}} />
+        </div>
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+            Hemen Başlayın!
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Ehliyetinize giden yolda ilk adımı atmak için bugün bize katılın. 
+            Ücretsiz danışmanlık için hemen iletişime geçin.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Link
+              to="/register"
+              className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl"
+            >
+              Online Kayıt
+            </Link>
+            <a
+              href="tel:+903121234567"
+              className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-bold px-8 py-4 rounded-xl text-lg border-2 border-white/30 transition-all duration-300 transform hover:scale-105"
+            >
+              (0312) 123 45 67
+            </a>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-blue-100">
+            <div className="flex items-center gap-2">
+              <MapPin className="h-5 w-5" />
+              <span>Ankara, Çankaya</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Mail className="h-5 w-5" />
+              <span>info@surucukursu.com</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Clock className="h-5 w-5" />
+              <span>Pzt-Cmt: 09:00 - 18:00</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
 
       {/* Partners/Certifications */}
       <section className="py-16 bg-gray-50 border-t border-gray-200">
@@ -688,7 +691,8 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
+        
+      
     </div>
   );
 };
