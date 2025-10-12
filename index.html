@@ -107,6 +107,11 @@
           );
         }
       }(window.location))
+      
+      // Boş sayfa durumunda ana sayfaya yönlendir
+      if (window.location.pathname === '/' && window.location.hash === '') {
+        window.location.hash = '#/';
+      }
     </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>

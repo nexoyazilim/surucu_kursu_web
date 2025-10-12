@@ -5,14 +5,26 @@
     <link rel="icon" type="image/svg+xml" href="/car-icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sürücü Akademi</title>
+    <script>
+      // GitHub Pages için 404 sayfası - kullanıcıyı ana sayfaya yönlendir
+      var segmentCount = 0;
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
   </head>
   <body>
-    <div id="root"></div>
-    <script>
-      // GitHub Pages için React Router düzeltmesi
-      // Kullanıcıyı ana sayfaya yönlendir
-      sessionStorage.redirect = location.href;
-    </script>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="root">
+      <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+        <h1>Sayfa Bulunamadı</h1>
+        <p>Ana sayfaya yönlendiriliyorsunuz...</p>
+        <p><a href="/">Ana sayfaya git</a></p>
+      </div>
+    </div>
   </body>
 </html>

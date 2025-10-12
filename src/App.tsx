@@ -44,6 +44,8 @@ function App() {
             <Route path="/first-aid" element={<FirstAidPage />} />
             <Route path="/vehicle-tech" element={<VehicleTechPage />} />
             <Route path="/traffic-etiquette" element={<TrafficEtiquettePage />} />
+            {/* Catch-all route for GitHub Pages */}
+            <Route path="*" element={<HomePage />} />
           </Routes>
         </main>
         <Footer />
