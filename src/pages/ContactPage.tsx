@@ -134,30 +134,7 @@ const ContactPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Branches Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <motion.div className="text-center mb-16" initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.5 }} variants={fadeInUp}>
-                  <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Şubelerimiz</h2>
-                  <p className="text-xl text-gray-600 dark:text-gray-300">Size en yakın şubemizi ziyaret ederek detaylı bilgi alabilirsiniz.</p>
-              </motion.div>
-              <motion.div className="grid lg:grid-cols-3 gap-8" variants={staggerContainer} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
-                  {branches.map((branch, index) => (
-                      <motion.div key={index} className="group bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" variants={fadeInUp}>
-                          <div className="overflow-hidden"><img src={branch.image} alt={branch.name} className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"/></div>
-                          <div className="p-6">
-                              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{branch.name}</h3>
-                              <div className="space-y-3 mb-4">
-                                  <div className="flex items-start"><MapPin className="h-5 w-5 text-gray-400 dark:text-gray-500 mr-3 flex-shrink-0 mt-0.5" /><p className="text-gray-600 dark:text-gray-300">{branch.address}</p></div>
-                                  <div className="flex items-center"><Phone className="h-5 w-5 text-gray-400 dark:text-gray-500 mr-3 flex-shrink-0" /><p className="text-gray-600 dark:text-gray-300">{branch.phone}</p></div>
-                              </div>
-                              <button className="w-full bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors transform group-hover:scale-105 duration-300">Yol Tarifi Al</button>
-                          </div>
-                      </motion.div>
-                  ))}
-              </motion.div>
-          </div>
-      </section>
+
 
       {/* FAQ Section */}
       <section className="py-20 bg-white dark:bg-blue-950">

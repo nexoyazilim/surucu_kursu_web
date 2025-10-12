@@ -251,29 +251,7 @@ const LicenseTypesPage: React.FC = () => {
           })}
         </div>
         
-        {/* CTA Section */}
-        <div className="mt-20 text-center bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-12 text-white shadow-2xl">
-          <h2 className="text-3xl font-bold mb-4">
-            Hangi Ehliyet Sınıfı Size Uygun?
-          </h2>
-          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Uzman danışmanlarımızla iletişime geçin, hedeflerinize ve ihtiyaçlarınıza en uygun ehliyet türünü birlikte belirleyelim.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/contact"
-              className="bg-white text-blue-600 font-bold px-8 py-4 rounded-xl hover:bg-gray-200 transition-transform hover:scale-105"
-            >
-              Ücretsiz Danışmanlık Al
-            </Link>
-            <Link
-              to="/courses"
-              className="bg-blue-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-700 transition-transform hover:scale-105"
-            >
-              Tüm Kursları Gör
-            </Link>
-          </div>
-        </div>
+
       </div>
     </div>
   );
