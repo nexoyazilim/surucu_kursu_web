@@ -211,7 +211,7 @@ const HomePage = () => {
       </section>
 
       {/* Video/Courses Section */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-8 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold text-sm uppercase tracking-wider px-6 py-2 rounded-full mb-4 shadow-lg">
@@ -227,7 +227,7 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
             {[
               {
                 title: "Teorik Eğitim",
@@ -243,13 +243,7 @@ const HomePage = () => {
                 duration: "12 saat",
                 gradient: "from-orange-600 to-red-600"
               },
-              {
-                title: "Simülatör Eğitimi",
-                image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=600&q=80",
-                desc: "Güvenli öğrenme ortamı",
-                duration: "8 saat",
-                gradient: "from-purple-600 to-pink-600"
-              },
+              
             ].map((course, index) => (
               <div key={index} className="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3">
                 <div className="relative h-64 overflow-hidden">
@@ -281,7 +275,7 @@ const HomePage = () => {
 
 
       {/* Blog/News Section */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-8 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-end mb-12">
             <div>
@@ -365,7 +359,7 @@ const HomePage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold text-sm uppercase tracking-wider px-6 py-2 rounded-full mb-4 shadow-lg">
@@ -485,30 +479,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Partners/Certifications */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-black text-gray-900 mb-3">Sertifikalarımız ve İş Ortaklarımız</h3>
-            <p className="text-xl text-gray-600">Güvenilir ve kaliteli eğitim için akredite kurum</p>
-          </div>
-          
-          <div className="flex flex-wrap justify-center items-center gap-8">
-            {[
-              { name: "MEB Onaylı", gradient: "from-blue-500 to-cyan-500" },
-              { name: "ISO 9001", gradient: "from-green-500 to-emerald-500" },
-              { name: "Trafik Güvenliği Sertifikalı", gradient: "from-orange-500 to-yellow-500" },
-              { name: "MTSK Üyesi", gradient: "from-purple-500 to-pink-500" }
-            ].map((cert, index) => (
-              <div key={index} className="group bg-white px-10 py-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-                <p className={`bg-gradient-to-r ${cert.gradient} bg-clip-text text-transparent font-black text-lg text-center group-hover:scale-110 transition-transform`}>
-                  {cert.name}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
     </div>
   );
 };
