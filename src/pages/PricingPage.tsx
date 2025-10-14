@@ -145,14 +145,7 @@ const PricingPage = () => {
                       : 'border-gray-200 shadow-lg'
                   }`}
                 >
-                  {license.popular && (
-                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                      <div className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-lg flex items-center gap-1.5">
-                        <Star className="w-3 h-3 fill-current" />
-                        En Çok Tercih Edilen
-                      </div>
-                    </div>
-                  )}
+                  
                   
                   <div className="p-6">
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 mx-auto ${
@@ -204,13 +197,7 @@ const PricingPage = () => {
                       </li>
                     </ul>
 
-                    <button className={`w-full py-3 rounded-lg font-bold transition-all duration-300 hover:scale-105 text-sm ${
-                      license.popular
-                        ? 'bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white shadow-lg'
-                        : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
-                    }`}>
-                      Kayıt Ol
-                    </button>
+                    
                   </div>
                 </div>
               );
@@ -246,9 +233,6 @@ const PricingPage = () => {
                     <span className="text-4xl font-black text-gray-900">{upgrade.price}</span>
                     <span className="text-xl font-bold text-gray-500">₺</span>
                   </div>
-                  <button className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105">
-                    Detaylı Bilgi
-                  </button>
                 </div>
               </div>
             ))}
