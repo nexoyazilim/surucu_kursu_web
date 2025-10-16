@@ -297,7 +297,7 @@ const PricingPage = () => {
 
         {/* Info Banner */}
         <div className="bg-gradient-to-br from-slate-900 to-blue-900 rounded-3xl p-12 mb-20 text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200')] bg-cover bg-center opacity-5"></div>
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200')] bg-cover bg-center opacity-50"></div>
           <div className="relative grid md:grid-cols-2 gap-12">
             <div>
               <h3 className="text-2xl font-black mb-6 flex items-center gap-3">

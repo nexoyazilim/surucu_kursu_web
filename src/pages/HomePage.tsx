@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { GraduationCap, Calendar, FileText, Lightbulb, HelpCircle, Star, Users, Award, Clock, CheckCircle, Phone, Mail, MapPin, TrendingUp, BookOpen, Car, Shield, Trophy } from 'lucide-react';
+import { GraduationCap, Calendar, HelpCircle, Award, CheckCircle, Phone, Car, Trophy, Target } from 'lucide-react';
 
 const HomePage = () => {
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [stats, setStats] = useState({ students: 0, success: 0, years: 0, instructors: 0 });
 
   useEffect(() => {
@@ -30,56 +29,14 @@ const HomePage = () => {
     return () => clearInterval(timer);
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveTestimonial((prev) => (prev + 1) % 3);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
 
-  const testimonials = [
-    {
-      name: "Ayşe Yılmaz",
-      text: "Harika bir eğitim deneyimi! Eğitmenler çok sabırlı ve profesyonel. İlk denemede sınavı geçtim.",
-      rating: 5,
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80"
-    },
-    {
-      name: "Mehmet Kaya",
-      text: "18 yıllık deneyim gerçekten fark yaratıyor. Hem teorik hem pratik eğitimler mükemmeldi.",
-      rating: 5,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80"
-    },
-    {
-      name: "Zeynep Demir",
-      text: "Simülatör eğitimleri sayesinde gerçek trafiğe çok daha hazır hissettim. Teşekkürler!",
-      rating: 5,
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80"
-    }
-  ];
-
-  const features = [
-    { icon: Shield, title: "Güvenli Eğitim", desc: "Modern araçlar ve güvenlik sistemleri" },
-    { icon: Award, title: "%98 Başarı", desc: "Yüksek sınav başarı oranı" },
-    { icon: Users, title: "Uzman Kadro", desc: "25+ deneyimli eğitmen" },
-    { icon: Clock, title: "Esnek Saatler", desc: "Size uygun ders programı" }
-  ];
-
-  const advantages = [
-    "Ücretsiz teorik deneme sınavları",
-    "Modern araç filosu",
-    "Bireysel eğitim programı",
-    "Sınav öncesi özel hazırlık",
-    "Online ders takip sistemi",
-    "Kapıdan alım servisi"
-  ];
 
   return (
     <div className="bg-white">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-indigo-900 via-blue-800 to-cyan-700 pt-20 pb-32 overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200')] bg-cover bg-center opacity-10"></div>
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200')] bg-cover bg-center opacity-50"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/50 to-blue-900"></div>
         </div>
         
@@ -180,35 +137,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Features Bar */}
-      <section className="relative -mt-20 z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {features.map((feature, index) => {
-                const Icon = feature.icon;
-                const gradients = [
-                  'from-blue-500 to-cyan-500',
-                  'from-orange-500 to-yellow-500',
-                  'from-purple-500 to-pink-500',
-                  'from-green-500 to-emerald-500'
-                ];
-                return (
-                  <div key={index} className="flex items-start gap-4 group cursor-pointer">
-                    <div className={`bg-gradient-to-br ${gradients[index]} p-4 rounded-2xl shadow-lg group-hover:scale-110 transition-all duration-300`}>
-                      <Icon className="h-7 w-7 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-gray-900 mb-1 text-lg">{feature.title}</h3>
-                      <p className="text-sm text-gray-600 leading-relaxed">{feature.desc}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Video/Courses Section */}
       <section className="py-8 bg-gradient-to-b from-gray-50 to-white">
@@ -274,24 +203,169 @@ const HomePage = () => {
       </section>
 
 
-      {/* Blog/News Section */}
-      <section className="py-8 bg-gradient-to-b from-gray-50 to-white">
+      {/* Popular Pricing Section */}
+      <section className="py-12 sm:py-8 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-end mb-12">
-            <div>
-              <span className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold text-sm uppercase tracking-wider px-6 py-2 rounded-full mb-4 shadow-lg">
-                Blog & Haberler
+          <div className="text-center mb-8 sm:mb-12">
+            <span className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold text-xs sm:text-sm uppercase tracking-wider px-4 sm:px-6 py-2 rounded-full mb-3 sm:mb-4 shadow-lg">
+              Popüler Paketler
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 sm:mb-6 px-2">
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                Uygun Fiyatlar
               </span>
-              <h2 className="text-5xl md:text-6xl font-black text-gray-900">
-                <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                  Son Yazılar
-                </span>
-              </h2>
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-2">
+              Şeffaf fiyatlandırma ve esnek ödeme seçenekleri
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-10">
+            {/* B Sınıfı - Most Popular */}
+            <div className="relative bg-white rounded-2xl sm:rounded-3xl border-2 border-green-600 shadow-2xl shadow-blue-100 transition-all duration-500 hover:-translate-y-3 overflow-hidden">
+              <div className="absolute top-0 right-0 bg-gradient-to-br from-blue-600 to-cyan-600 text-white px-4 sm:px-6 py-1.5 sm:py-2 rounded-bl-xl sm:rounded-bl-2xl font-bold text-xs sm:text-sm shadow-lg">
+                ⭐ En Popüler
+              </div>
+              <div className="p-6 sm:p-8 pt-10 sm:pt-12">
+                <div className="bg-gradient-to-br from-blue-600 to-cyan-600 w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 mx-auto shadow-lg">
+                  <Car className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-black text-center text-gray-900 mb-2">
+                  B Sınıfı
+                </h3>
+                <p className="text-xs sm:text-sm text-center text-gray-500 mb-4 sm:mb-6">
+                  Otomobil Ehliyeti
+                </p>
+                <div className="text-center mb-6 sm:mb-8 pb-6 sm:pb-8 border-b-2 border-gray-100">
+                  <div className="flex items-baseline justify-center gap-1">
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">17.500</span>
+                    <span className="text-xl sm:text-2xl font-bold text-gray-500">₺</span>
+                  </div>
+                </div>
+                <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
+                  <li className="flex items-start text-gray-700 text-sm sm:text-base">
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Teorik dersler dahil</span>
+                  </li>
+                  <li className="flex items-start text-gray-700 text-sm sm:text-base">
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
+                    <span>12 saat direksiyon eğitimi</span>
+                  </li>
+                  <li className="flex items-start text-gray-700 text-sm sm:text-base">
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Modern araç filosu</span>
+                  </li>
+                  <li className="flex items-start text-gray-700 text-sm sm:text-base">
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Sınav öncesi hazırlık</span>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <Link to="/blog" className="hidden md:inline-flex items-center gap-3 text-blue-600 font-bold hover:text-blue-700 text-lg group">
-              Tümünü Gör
-              <span className="text-xl group-hover:translate-x-2 transition-transform">→</span>
+
+            {/* A2 Sınıfı */}
+            <div className="relative bg-white rounded-2xl sm:rounded-3xl border-2 border-gray-200 shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 hover:border-blue-300">
+              <div className="p-6 sm:p-8">
+                <div className="bg-gradient-to-br from-blue-600 to-cyan-600 w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 mx-auto shadow-lg">
+                  <Target className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-black text-center text-gray-900 mb-2">
+                  A2 Sınıfı
+                </h3>
+                <p className="text-xs sm:text-sm text-center text-gray-500 mb-4 sm:mb-6">
+                  Motosiklet Ehliyeti
+                </p>
+                <div className="text-center mb-6 sm:mb-8 pb-6 sm:pb-8 border-b-2 border-gray-100">
+                  <div className="flex items-baseline justify-center gap-1">
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900">14.000</span>
+                    <span className="text-xl sm:text-2xl font-bold text-gray-500">₺</span>
+                  </div>
+                </div>
+                <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
+                  <li className="flex items-start text-gray-700 text-sm sm:text-base">
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Teorik dersler dahil</span>
+                  </li>
+                  <li className="flex items-start text-gray-700 text-sm sm:text-base">
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Motosiklet eğitimi</span>
+                  </li>
+                  <li className="flex items-start text-gray-700 text-sm sm:text-base">
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Güvenlik ekipmanları</span>
+                  </li>
+                  <li className="flex items-start text-gray-700 text-sm sm:text-base">
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Deneyimli eğitmenler</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* A1 Sınıfı */}
+            <div className="relative bg-white rounded-2xl sm:rounded-3xl border-2 border-gray-200 shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 hover:border-blue-300 sm:col-span-2 lg:col-span-1">
+              <div className="p-6 sm:p-8">
+                <div className="bg-gradient-to-br from-blue-600 to-cyan-600 w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 mx-auto shadow-lg">
+                  <Award className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-black text-center text-gray-900 mb-2">
+                  A1 Sınıfı
+                </h3>
+                <p className="text-xs sm:text-sm text-center text-gray-500 mb-4 sm:mb-6">
+                  Hafif Motosiklet
+                </p>
+                <div className="text-center mb-6 sm:mb-8 pb-6 sm:pb-8 border-b-2 border-gray-100">
+                  <div className="flex items-baseline justify-center gap-1">
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900">13.000</span>
+                    <span className="text-xl sm:text-2xl font-bold text-gray-500">₺</span>
+                  </div>
+                </div>
+                <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
+                  <li className="flex items-start text-gray-700 text-sm sm:text-base">
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Teorik dersler dahil</span>
+                  </li>
+                  <li className="flex items-start text-gray-700 text-sm sm:text-base">
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Hafif motor eğitimi</span>
+                  </li>
+                  <li className="flex items-start text-gray-700 text-sm sm:text-base">
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Uygun fiyat avantajı</span>
+                  </li>
+                  <li className="flex items-start text-gray-700 text-sm sm:text-base">
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
+                    <span>16 yaş üzeri için</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <Link
+              to="/pricing"
+              className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-bold px-6 sm:px-10 py-3 sm:py-5 rounded-xl sm:rounded-2xl text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-blue-500/50"
+            >
+              Tüm Fiyatları Görüntüle
+              <span className="text-lg sm:text-xl">→</span>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog/News Section */}
+      <section className="py-8 sm:py-12 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-12">
+            <span className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold text-xs sm:text-sm uppercase tracking-wider px-4 sm:px-6 py-2 rounded-full mb-3 sm:mb-4 shadow-lg">
+              Blog & Haberler
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 sm:mb-6 px-2">
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                Son Yazılar
+              </span>
+            </h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -299,7 +373,7 @@ const HomePage = () => {
               {
                 title: "2024 Ehliyet Sınav Değişiklikleri",
                 excerpt: "Yeni yılda ehliyet sınavlarında yapılan değişiklikler ve bunlara nasıl hazırlanacağınız...",
-                image: "https://images.unsplash.com/photo-1554224311-beee4ced5934?w=600&q=80",
+                image: "https://www.acibadem.com.tr/hayat/Images/YayinMakaleler/sinav-kayginizi-azaltacak-10-oneri_9100_1.jpg",
                 date: "15 Haziran 2024",
                 category: "Sınav İpuçları",
                 gradient: "from-blue-600 to-cyan-600"
@@ -307,7 +381,7 @@ const HomePage = () => {
               {
                 title: "Kış Sürüşünde Dikkat Edilmesi Gerekenler",
                 excerpt: "Karlı ve buzlu havalarda güvenli sürüş için mutlaka bilmeniz gereken 10 altın kural...",
-                image: "https://images.unsplash.com/photo-1548707309-dcebeab9ea9b?w=600&q=80",
+                image: "https://www.otopratik.com.tr/uploads/content_images/karli-havada-araba.webp",
                 date: "10 Haziran 2024",
                 category: "Güvenlik",
                 gradient: "from-orange-600 to-red-600"
@@ -359,23 +433,23 @@ const HomePage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-12 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold text-sm uppercase tracking-wider px-6 py-2 rounded-full mb-4 shadow-lg">
+          <div className="text-center mb-10 sm:mb-16">
+            <span className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold text-xs sm:text-sm uppercase tracking-wider px-4 sm:px-6 py-2 rounded-full mb-3 sm:mb-4 shadow-lg">
               Merak Edilenler
             </span>
-            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 sm:mb-6 px-2">
               <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                 Sıkça Sorulan Sorular
               </span>
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 px-2">
               En çok merak edilen sorulara yanıtlar
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {[
               {
                 question: "Ehliyet almak için kaç yaşında olmam gerekir?",
@@ -398,17 +472,17 @@ const HomePage = () => {
                 answer: "Modern ve güvenli araç filomuzda manuel ve otomatik vites seçenekleri bulunmaktadır. Tüm araçlarımız düzenli bakımlıdır."
               }
             ].map((faq, index) => (
-              <details key={index} className="group bg-gradient-to-r from-gray-50 to-white rounded-3xl p-8 hover:shadow-xl transition-all cursor-pointer border border-gray-100">
-                <summary className="flex justify-between items-center font-bold text-gray-900 text-xl cursor-pointer list-none">
-                  <span className="flex items-center gap-4">
-                    <div className="bg-gradient-to-br from-blue-500 to-cyan-500 p-3 rounded-2xl group-hover:scale-110 transition-transform shadow-lg">
-                      <HelpCircle className="h-6 w-6 text-white" />
+              <details key={index} className="group bg-gradient-to-r from-gray-50 to-white rounded-2xl sm:rounded-3xl hover:shadow-xl transition-all border border-gray-100 overflow-hidden">
+                <summary className="flex justify-between items-center font-bold text-gray-900 text-base sm:text-lg md:text-xl cursor-pointer list-none p-5 sm:p-6 lg:p-8 w-full hover:bg-gray-50/50 transition-colors">
+                  <span className="flex items-center gap-3 sm:gap-4 flex-1">
+                    <div className="bg-gradient-to-br from-blue-500 to-cyan-500 p-2 sm:p-3 rounded-xl sm:rounded-2xl group-hover:scale-110 transition-transform shadow-lg flex-shrink-0">
+                      <HelpCircle className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                     </div>
-                    {faq.question}
+                    <span className="pr-2">{faq.question}</span>
                   </span>
-                  <span className="text-3xl text-blue-600 group-open:rotate-45 transition-transform">+</span>
+                  <span className="text-2xl sm:text-3xl text-blue-600 group-open:rotate-45 transition-transform flex-shrink-0">+</span>
                 </summary>
-                <p className="mt-6 text-gray-600 leading-relaxed pl-16 text-lg">
+                <p className="px-5 sm:px-8 pb-5 sm:pb-8 text-gray-600 leading-relaxed pl-14 sm:pl-20 lg:pl-24 text-sm sm:text-base lg:text-lg">
                   {faq.answer}
                 </p>
               </details>
@@ -427,57 +501,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-indigo-900 via-blue-800 to-cyan-700 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200')] bg-cover bg-center opacity-10"></div>
-        </div>
-        
-        <div className="absolute inset-0 overflow-hidden">
-          <Car className="absolute top-10 left-10 h-32 w-32 text-white/10 animate-pulse" />
-          <Car className="absolute bottom-10 right-10 h-32 w-32 text-white/10 animate-pulse" style={{animationDelay: '1s'}} />
-        </div>
-        
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
-            Hemen Başlayın!
-          </h2>
-          <p className="text-2xl text-blue-100 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Ehliyetinize giden yolda ilk adımı atmak için bugün bize katılın. 
-            Ücretsiz danışmanlık için hemen iletişime geçin.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-            <Link
-              to="/register"
-              className="group bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-bold px-10 py-5 rounded-2xl text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-yellow-500/50"
-            >
-              Online Kayıt
-            </Link>
-            <a
-              href="tel:+903121234567"
-              className="group bg-white/10 backdrop-blur-md hover:bg-white/20 text-white font-bold px-10 py-5 rounded-2xl text-xl border-2 border-white/30 hover:border-white/50 transition-all duration-300 transform hover:scale-105"
-            >
-              (0312) 123 45 67
-            </a>
-          </div>
 
-          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center text-blue-100">
-            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-2xl border border-white/20">
-              <MapPin className="h-6 w-6" />
-              <span className="font-semibold">Ankara, Çankaya</span>
-            </div>
-            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-2xl border border-white/20">
-              <Mail className="h-6 w-6" />
-              <span className="font-semibold">info@surucukursu.com</span>
-            </div>
-            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-2xl border border-white/20">
-              <Clock className="h-6 w-6" />
-              <span className="font-semibold">Pzt-Cmt: 09:00 - 18:00</span>
-            </div>
-          </div>
-        </div>
-      </section>
 
 
     </div>

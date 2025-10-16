@@ -15,19 +15,19 @@ const ContactPage: React.FC = () => {
       icon: Phone, 
       title: "Telefon", 
       details: ["(312) 123-4567", "(312) 123-4568", "WhatsApp: (535) 123-4567"],
-      gradient: "from-green-600 to-emerald-600"
+      gradient: "from-blue-600 to-cyan-600"
     },
     { 
       icon: Mail, 
       title: "E-posta", 
       details: ["info@surucu-akademi.com", "kayit@surucu-akademi.com", "destek@surucu-akademi.com"],
-      gradient: "from-purple-600 to-pink-600"
+      gradient: "from-blue-600 to-cyan-600"
     },
     { 
       icon: Clock, 
       title: "Çalışma Saatleri", 
       details: ["Pzt - Cuma: 08:00 - 18:00", "Cumartesi: 09:00 - 16:00", "Pazar: Kapalı"],
-      gradient: "from-orange-600 to-yellow-600"
+      gradient: "from-blue-600 to-cyan-600"
     }
   ];
 
@@ -79,7 +79,7 @@ const ContactPage: React.FC = () => {
     <div className="bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1200')] bg-cover bg-center opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1200')] bg-cover bg-center opacity-50"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-900"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
@@ -100,7 +100,7 @@ const ContactPage: React.FC = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {contactInfo.map((info, index) => {
@@ -131,7 +131,7 @@ const ContactPage: React.FC = () => {
       </section>
       
       {/* Contact Form & Map Section */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-12 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
@@ -240,7 +240,7 @@ const ContactPage: React.FC = () => {
       </section>
 
       {/* Branches Section */}
-      <section className="py-24 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">

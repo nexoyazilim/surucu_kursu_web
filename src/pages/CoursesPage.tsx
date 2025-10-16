@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Car, Users, Shield, Award } from 'lucide-react';
 
 // Base path for assets - BU FONKSİYON OLDUĞU GİBİ KALDI
@@ -87,19 +86,19 @@ const CoursesPage: React.FC = () => {
       icon: Users,
       title: "Uzman Eğitmenler", 
       description: "Sertifikalı ve deneyimli eğitmenlerimizden profesyonel eğitim alın.",
-      gradient: "from-green-600 to-emerald-600"
+      gradient: "from-blue-600 to-cyan-600"
     },
     {
       icon: Shield,
       title: "Güvenlik Önceliği",
       description: "Tüm eğitimlerimizde güvenlik en yüksek öncelik olarak ele alınır.",
-      gradient: "from-purple-600 to-pink-600"
+      gradient: "from-blue-600 to-cyan-600"
     },
     {
       icon: Award,
       title: "Sertifikalı Eğitim",
       description: "Tüm kurslarımız resmi otoriteler tarafından onaylanmış programlardır.",
-      gradient: "from-orange-600 to-yellow-600"
+      gradient: "from-blue-600 to-cyan-600"
     }
   ];
 
@@ -111,7 +110,7 @@ const CoursesPage: React.FC = () => {
       alt: "Trafik ve Çevre Bilgisi",
       title: "Trafik ve Çevre Bilgisi",
       description: "Trafik kuralları ve çevre bilgisi hakkında kapsamlı eğitim videoları",
-      gradient: "from-blue-500 to-blue-700"
+      gradient: "from-red-500 to-blue-700"
     },
     {
       to: "/first-aid",
@@ -119,7 +118,7 @@ const CoursesPage: React.FC = () => {
       alt: "İlk Yardım Bilgisi",
       title: "İlk Yardım Bilgisi",
       description: "Temel ilk yardım teknikleri ve uygulamaları",
-      gradient: "from-green-500 to-green-700"
+      gradient: "from-red-500 to-blue-700"
     },
     {
       to: "/vehicle-tech",
@@ -127,7 +126,7 @@ const CoursesPage: React.FC = () => {
       alt: "Araç Tekniği",
       title: "Araç Tekniği",
       description: "Motor ve araç sistemleri hakkında teknik bilgiler",
-      gradient: "from-purple-500 to-purple-700"
+      gradient: "from-red-500 to-blue-700"
     },
     {
       to: "/traffic-etiquette",
@@ -135,7 +134,7 @@ const CoursesPage: React.FC = () => {
       alt: "Trafik Adabı",
       title: "Trafik Adabı",
       description: "Trafikte görgü kuralları ve etik davranışlar",
-      gradient: "from-orange-500 to-red-500"
+      gradient: "from-red-500 to-blue-700"
     }
   ];
 
@@ -162,7 +161,7 @@ const CoursesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Video Links Section - ContactPage kart stiliyle güncellendi */}
+      {/* Video Links Section - Arka plan resimleri büyütüldü */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -176,25 +175,28 @@ const CoursesPage: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {videoTopics.map((topic, index) => (
-              <Link
+              <a
                 key={index}
-                to={topic.to}
-                className="group block bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 hover:shadow-2xl hover:border-blue-200 transition-all duration-500 transform hover:-translate-y-2 text-center"
+                href={topic.to}
+                className="group block bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-gray-100 hover:shadow-2xl hover:border-blue-200 transition-all duration-500 transform hover:-translate-y-2"
               >
-                <div className={`bg-gradient-to-br ${topic.gradient} w-24 h-24 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300 p-3`}>
+                <div className="relative h-48 overflow-hidden">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${topic.gradient} opacity-90`}></div>
                   <img 
                     src={topic.image}
                     alt={topic.alt} 
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain p-12 relative z-10 group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <h3 className="text-xl font-black text-gray-900 mb-2">
-                  {topic.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {topic.description}
-                </p>
-              </Link>
+                <div className="p-6 text-center">
+                  <h3 className="text-xl font-black text-gray-900 mb-2">
+                    {topic.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm">
+                    {topic.description}
+                  </p>
+                </div>
+              </a>
             ))}
           </div>
         </div>

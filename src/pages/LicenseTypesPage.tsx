@@ -185,10 +185,10 @@ const LicenseTypesPage: React.FC = () => {
     <div className="bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1571895345105-3e4f39591a27?w=1200')] bg-cover bg-center opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1571895345105-3e4f39591a27?w=1200')] bg-cover bg-center opacity-50"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-900"></div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
           <div className="inline-block mb-6">
             <div className="bg-blue-600/20 backdrop-blur-sm border border-blue-400/30 rounded-full px-6 py-2 text-sm font-semibold text-blue-300">
               Tüm Sınıflar Bir Arada
@@ -205,7 +205,7 @@ const LicenseTypesPage: React.FC = () => {
       </section>
 
       {/* Licenses Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Category Filters */}
           <div className="flex justify-center flex-wrap gap-4 mb-16">
